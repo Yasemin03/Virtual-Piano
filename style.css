@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 10px;
+  background: url("./image/wpaper.jpg") bottom center;
+  background-size: cover;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.keyboard {
+  display: flex;
+  padding: 35px 40px;
+  border-radius: 20px;
+  background: #000000;
+}
+
+#key-w {
+  height: 330px;
+  width: 100px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: linear-gradient(#fff 96%, #eee 4%);
+  font-size: 3.5rem;
+  text-align: center;
+}
+#key-b {
+  z-index: 2;
+  width: 60px;
+  height: 200px;
+  margin: 0 -30px 0 -30px;
+  border-radius: 0 0 8px 8px;
+  background: linear-gradient(#333, #000);
+  bottom: 13px;
+  color: #ffffff;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.active#key-w {
+  box-shadow: inset -5px 5px 20px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+.active#key-b {
+  box-shadow: inset -5px -10px 10px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to bottom, #000, #434343);
+}

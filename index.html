@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Virtual Piano</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="image/icons8-piano-64.png" />
+  </head>
+  <body>
+    <script>
+      function removeTransition(a) {
+        if (a.propertyName !== "transform") return;
+        a.target.classList.remove("active");
+      }
+
+      function activeAudio(a) {
+        const audio = document.querySelector(`audio[data-key="${a.keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${a.keyCode}"]`);
+        if (!audio) return;
+
+        key.classList.add("active");
+        setTimeout(() => {
+          key.classList.remove("active");
+        }, 100);
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+      const keys = Array.from(document.querySelectorAll(".key"));
+      keys.forEach((key) =>
+        key.addEventListener("transitionend", removeTransition)
+      );
+      window.addEventListener("keydown", activeAudio);
+    </script>
+    <div class="container">
+      <div class="keyboard">
+        <div data-key="81" class="key" id="key-w">Q</div>
+        <div data-key="87" class="key" id="key-b">w</div>
+        <div data-key="69" class="key" id="key-w">E</div>
+        <div data-key="82" class="key" id="key-b">R</div>
+        <div data-key="84" class="key" id="key-w">T</div>
+        <div data-key="89" class="key" id="key-w">Y</div>
+        <div data-key="85" class="key" id="key-b">U</div>
+        <div data-key="73" class="key" id="key-w">I</div>
+        <div data-key="79" class="key" id="key-b">O</div>
+        <div data-key="80" class="key" id="key-w">P</div>
+        <div data-key="219" class="key" id="key-b">Ğ</div>
+        <div data-key="221" class="key" id="key-w">Ü</div>
+        <div data-key="65" class="key" id="key-w">A</div>
+        <div data-key="83" class="key" id="key-b">S</div>
+        <div data-key="68" class="key" id="key-w">D</div>
+        <div data-key="70" class="key" id="key-b">F</div>
+        <div data-key="71" class="key" id="key-w">G</div>
+        <div data-key="72" class="key" id="key-w">H</div>
+        <div data-key="74" class="key" id="key-b">J</div>
+        <div data-key="75" class="key" id="key-w">K</div>
+        <div data-key="76" class="key" id="key-b">L</div>
+        <div data-key="186" class="key" id="key-w">Ş</div>
+        <div data-key="222" class="key" id="key-b">İ</div>
+        <div data-key="188" class="key" id="key-w">,</div>
+      </div>
+    </div>
+    <audio data-key="81" src="audio/key01.mp3"></audio>
+    <audio data-key="87" src="audio/key02.mp3"></audio>
+    <audio data-key="69" src="audio/key03.mp3"></audio>
+    <audio data-key="82" src="audio/key04.mp3"></audio>
+    <audio data-key="84" src="audio/key05.mp3"></audio>
+    <audio data-key="89" src="audio/key06.mp3"></audio>
+    <audio data-key="85" src="audio/key07.mp3"></audio>
+    <audio data-key="73" src="audio/key08.mp3"></audio>
+    <audio data-key="79" src="audio/key09.mp3"></audio>
+    <audio data-key="80" src="audio/key10.mp3"></audio>
+    <audio data-key="219" src="audio/key11.mp3"></audio>
+    <audio data-key="221" src="audio/key12.mp3"></audio>
+    <audio data-key="65" src="audio/key13.mp3"></audio>
+    <audio data-key="83" src="audio/key14.mp3"></audio>
+    <audio data-key="68" src="audio/key15.mp3"></audio>
+    <audio data-key="70" src="audio/key16.mp3"></audio>
+    <audio data-key="71" src="audio/key17.mp3"></audio>
+    <audio data-key="72" src="audio/key18.mp3"></audio>
+    <audio data-key="74" src="audio/key19.mp3"></audio>
+    <audio data-key="75" src="audio/key20.mp3"></audio>
+    <audio data-key="76" src="audio/key21.mp3"></audio>
+    <audio data-key="186" src="audio/key22.mp3"></audio>
+    <audio data-key="222" src="audio/key23.mp3"></audio>
+    <audio data-key="188" src="audio/key24.mp3"></audio>
+  </body>
+</html>
